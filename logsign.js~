@@ -1,0 +1,27 @@
+var express = require('express');
+
+var app =express();
+
+var bodyParser = require('body-parser');
+
+app.get('/f1',function(req,res){
+ res.sendFile(__dirname+'/login.html');
+});
+app.get('/f2',function(req,res){
+ res.sendFile(__dirname+'/signup.html');
+});
+
+app.post('/signup', function (req, res) {
+var a=req.body.fname;
+var b=req.body.aa;
+ss.update(b);
+var c=ss.digest('hex');
+   
+res.send('userid'+a+   'you are successfull'+c);
+
+});
+
+
+
+app.listen(5000);
+

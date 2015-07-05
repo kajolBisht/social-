@@ -1,3 +1,42 @@
-var express=require('express');
-var app=express();
+var express = require('express');
+
+var app =express();
+
+var bodyParser = require('body-parser');
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'me',
+  password : 'secret',
+  database : 'my_db'
+});
+
+connection.connect();
+
+connection.query('Server.js', function(err, rows, fields) {
+  if (err) throw err;
+
+
+
+
+app.get('/',function(req,res){
+ res.sendFile(__dirname+'/login.html');
+});
+app.get('/',function(req,res){
+ res.sendFile(__dirname+'/signup.html');
+});
+
+app.post('/signup', function (req, res) {
+var a=req.body.fname;
+var b=req.body.aa;
+ss.update(b);
+var c=ss.digest('hex');
+   
+res.sendFile('userid'+a+   'you are successfull'+c);
+
+});
+
+
+
+app.listen(5000);
 
